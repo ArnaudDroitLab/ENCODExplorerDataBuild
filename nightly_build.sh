@@ -33,8 +33,7 @@ second_to_last_md5=`md5sum $second_to_last/encode_df_full.rda | awk '{print $1}'
 
 # If there was no change since last time, remove the directory.
 if [ "$last_md5" = "$second_to_last_md5" ]
-#    rm -r $dt
-    echo "Would remove."
+    rm -r $dt
 else
     rm -rf ~/public_html/ENCODExplorerData/latest
     ln -s ~/ENCODExplorerDataBuild/$dt ~/public_html/ENCODExplorerData/latest
