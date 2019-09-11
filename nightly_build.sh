@@ -17,7 +17,12 @@ popd
 
 if [ ! -e $dt/encode_df_full.rda ]
 then
-    mail -s "Error while regenerating encode_df" fournier.eric.2@crchudequebec.ulaval.ca < /dev/null
+    echo "ENCODExplorerData build failed." | mail -s "ENCODExplorerData weekly build failure." \
+        -r encodexplorerdata@ls31.genome.ulaval.ca \
+        -a $dt/stdout.log -a $dt/stderr.log \
+        fournier.eric.2@crchudequebec.ulaval.ca \
+        charles.joly-beauparlant@crchudequebec.ulaval.ca
+        
     exit
 fi
 
